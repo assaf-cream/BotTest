@@ -1,0 +1,26 @@
+{
+  "name": "bottest",
+  "version": "1.0.0",
+  "description": "MS Bot Framework Test Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/assaf-cream/BotTest.git"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "Assaf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/assaf-cream/BotTest/issues"
+  },
+  "homepage": "https://github.com/assaf-cream/BotTest#readme",
+  "dependencies": {
+    "botbuilder": "^3.8.4",
+    "restify": "^5.0.0"
+  }
+}
