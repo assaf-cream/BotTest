@@ -21,6 +21,7 @@
   "homepage": "https://github.com/assaf-cream/BotTest#readme",
   "dependencies": {
     "botbuilder": "^3.8.4",
-    "restify": "^5.0.0"
+    "restify": "^5.0.0",
+    "twilio": "^3.4.0"
   }
 }
