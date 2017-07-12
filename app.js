@@ -30,7 +30,7 @@ intents.matches('Greet', (session, args) => {
     session.send('Hello mate 111!');
 })
 .matches('None', (session, args) => {
-    sendSMS(session.message.text);
+    sendSMSPlivo(session.message.text);
     session.send("Hrm.. I didn't understand that. Can you say it differently");  
 })
 .onDefault((session) => {
@@ -95,5 +95,27 @@ function sendSMS(msg) {
         from: process.env.TWILIO_FROM_NUMBER, 
     }, function(err, message) { 
         console.log(message.sid); 
+    });
+}
+
+function sendSMSPlivo() {
+    var plivo = require('plivo');
+    var p = plivo.RestAPI({
+    authId: process.env.PLIVO_ID,
+    authToken: process.env.PLIVO_TOKEN
+    });
+
+    var params = {
+        'src': process.env.PLIVO_FROM, // Sender's phone number with country code
+        'dst' : process.env.PLIVO_TO, // Receiver's phone Number with country code
+        'text' : "Hi, message from Plivo", // Your SMS Text Message - English
+        'url' : "http://ynet.co.il/", // The URL to which with the status of the message is sent
+        'method' : "GET" // The method used to call the url
+    };
+
+    // Prints the complete response
+    p.send_message(params, function (status, response) {
+        console.log('Status: ', status);
+        console.log('API Response:\n', response);
     });
 }
