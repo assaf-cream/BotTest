@@ -30,7 +30,7 @@ intents.matches('Greet', (session, args) => {
     session.send('Hello mate 111!');
 })
 .matches('None', (session, args) => {
-    sendSMSPlivo(session.message.text);
+    //sendSMSPlivo(session.message.text);
     session.send("Hrm.. I didn't understand that. Can you say it differently");  
 })
 .onDefault((session) => {
