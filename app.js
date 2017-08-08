@@ -41,7 +41,11 @@ var recognizer = new builder.LuisRecognizer(model);
 var intents = new builder.IntentDialog({ recognizers: [recognizer] });
 
 intents.matches('Greet', (session, args) => {
-    session.send('Hello mate 111!');
+    session.send('Hi!');
+})
+.matches('PurchaseSomething', (session, args) => {
+    //sendSMSPlivo(session.message.text);
+    session.send("Purchase?");  
 })
 .matches('None', (session, args) => {
     //sendSMSPlivo(session.message.text);
