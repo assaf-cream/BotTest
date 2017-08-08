@@ -16,6 +16,20 @@ var appPassword = process.env.MY_APP_PASSWORD;
 var connector = new builder.ChatConnector
 ({ appId: appId, appPassword: appPassword }); 
 var bot = new builder.UniversalBot(connector);
+
+const restifyBodyParser = require('restify-plugins').bodyParser;
+server.use(restifyBodyParser({ mapParams: true }));
+server.post('/sftest', function(req, res) {
+    var fs = require('fs');
+    fs.appendFile("sf.log", req.body + '\r\n*********************************\r\n', function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("The file was saved!");
+    }); 
+    res.send({result:0});
+});
+
 server.post('/api/messages', connector.listen());
 server.get('/', restify.plugins.serveStatic({ directory: __dirname, default: '/index.html'}));
 

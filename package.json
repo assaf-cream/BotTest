@@ -23,6 +23,7 @@
     "botbuilder": "^3.8.4",
     "plivo": "^0.4.1",
     "restify": "^5.0.0",
+    "restify-plugins": "^1.6.0",
     "twilio": "^3.4.0"
   }
 }
