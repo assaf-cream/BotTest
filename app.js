@@ -23,11 +23,11 @@ server.post('/sftest', function(req, res) {
     var fs = require('fs');
     fs.appendFile("sf.log", req.body + '\r\n*********************************\r\n', function(err) {
         if(err) {
-            return console.log(err);
+            res.send({err: err});
         }
         console.log("The file was saved!");
+        res.send({result:0});
     }); 
-    res.send({result:0});
 });
 
 server.post('/api/messages', connector.listen());
