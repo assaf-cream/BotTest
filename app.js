@@ -21,7 +21,7 @@ const restifyBodyParser = require('restify-plugins').bodyParser;
 server.use(restifyBodyParser({ mapParams: true }));
 server.post('/sftest', function(req, res) {
     var fs = require('fs');
-    fs.appendFile("sf.log", JSON.stringify(req.body) + '\r\n*********************************\r\n', function(err) {
+    fs.appendFile("sf.log", 'Body: ' + JSON.stringify(req.body) + '\r\n*********************************\r\nHEADERS: ' + JSON.stringify(req.headers) + '\r\n*********************************\r\n', function(err) {
         if(err) {
             res.send({err: err});
         }
